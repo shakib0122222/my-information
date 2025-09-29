@@ -30,8 +30,15 @@
             padding: 20px;
             width: 300px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 255, 204, 0.2), 0 10px 20px rgba(0, 255, 204, 0.1);
-            animation: fadeIn 1s ease-in-out;
+            box-shadow: 5px 5px 15px rgba(0, 255, 204, 0.4), -5px -5px 15px rgba(0, 255, 204, 0.4);
+            animation: dynamicShadow 6s infinite ease-in-out;
+        }
+        @keyframes dynamicShadow {
+            0% { box-shadow: 5px 5px 15px rgba(0, 255, 204, 0.4), -5px -5px 15px rgba(0, 255, 204, 0.4); }
+            25% { box-shadow: 10px 10px 20px rgba(0, 255, 204, 0.6), -10px -10px 20px rgba(0, 255, 204, 0.6); }
+            50% { box-shadow: -5px 5px 15px rgba(0, 255, 204, 0.4), 5px -5px 15px rgba(0, 255, 204, 0.4); }
+            75% { box-shadow: -10px -10px 20px rgba(0, 255, 204, 0.6), 10px 10px 20px rgba(0, 255, 204, 0.6); }
+            100% { box-shadow: 5px 5px 15px rgba(0, 255, 204, 0.4), -5px -5px 15px rgba(0, 255, 204, 0.4); }
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
@@ -63,41 +70,66 @@
         }
         li {
             margin: 10px 0;
-            color: #fff;
-            transition: color 0.3s;
         }
-        li:hover {
+        .label {
+            color: #fff;
+            font-weight: bold;
+            display: inline-block;
+            width: 100px;
+        }
+        .value {
             color: #00ffcc;
+            display: inline-block;
         }
         .footer {
-            margin-top: 21px;
+            margin-top: 20px;
             font-size: 12px;
             color: #888;
         }
         a {
-            color: #fff;
+            color: #00ffcc;
             text-decoration: none;
         }
         a:hover {
-            color: #00ffcc;
+            color: #fff;
+        }
+        .date-time {
+            color: #00ffcc; /* h1 এর কালারের মতো */
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="card">
-        <!-- নতুন ছবির লিঙ্ক -->
+        <div class="date-time" id="dateTime"></div>
         <img src="https://raw.githubusercontent.com/shakib0122222/mybloglove0/02ab8ef5603fe47919935d58d14cbb9b2dce7ad4/IMG_20250929_132903.png" alt="প্রোফাইল ছবি" class="profile-img">
-        <h1>SHAKIB HOSSAIN</h1>
+        <h1>SAKIB HOSSAIN</h1>
         <ul>
-            <li>মোবাইল: 01742921012</li>
-            <li>ইমেইল: skshakib4356@gmail.com</li>
-            <li>ফেসবুক: <a href="https://www.facebook.com/ShakibOfficial120" target="_blank">@ShakibOfficial120</a></li>
-            <li>ইউটিউব: <a href="https://youtube.com/@shakibexplainer?si=-LfbvUX--e7ZKwSa" target="_blank">@shakibexplainer</a></li>
-            <li>টেলিগ্রাম: @H4X0R_0</li>
-            <li>ঠিকানা: Gafargaon, Mymensingh</li>
-            <li>রক্তের গ্রুপ: O+</li>
+            <li><span class="label">মোবাইল:</span><span class="value">01742921012</span></li>
+            <li><span class="label">ইমেইল:</span><span class="value">skshakib4356@gmail.com</span></li>
+            <li><span class="label">ফেসবুক:</span><span class="value"><a href="https://www.facebook.com/ShakibOfficial120" target="_blank">@ShakibOfficial120</a></span></li>
+            <li><span class="label">ইউটিউব:</span><span class="value"><a href="https://youtube.com/@shakibexplainer?si=-LfbvUX--e7ZKwSa" target="_blank">@shakibexplainer</a></span></li>
+            <li><span class="label">টেলিগ্রাম:</span><span class="value">@H4X0R_0</span></li>
+            <li><span class="label">ঠিকানা:</span><span class="value">Gafargaon, Mymensingh</span></li>
+            <li><span class="label">রক্তের গ্রুপ:</span><span class="value">O+</span></li>
         </ul>
         <div class="footer">Developed by SAKIB HOSSAIN</div>
     </div>
+
+    <script>
+        // রিয়েল-টাইম ডেট এবং সময় আপডেট
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Dhaka' };
+            const dateTimeString = now.toLocaleString('bn-BD', options);
+            document.getElementById('dateTime').textContent = dateTimeString;
+        }
+
+        // প্রতি সেকেন্ডে আপডেট
+        setInterval(updateDateTime, 1000);
+        updateDateTime(); // প্রথমে লোড করা
+    </script>
 </body>
 </html>
