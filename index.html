@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার প্রোফাইল</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap');
 
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+            background: linear-gradient(45deg, #1a1a2e 10%, #16213e 20%, #0a0a23 30%, #2a2a44 40%, #1a1a2e 50%, #0a0a23 60%, #2a2a44 70%, #16213e 80%, #1a1a2e 90%);
+            animation: multiColorShift 15s ease-in-out infinite;
+        }
+        @keyframes multiColorShift {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+        .card {
+            background-color: rgba(26, 0, 51, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 255, 204, 0.2), 0 10px 20px rgba(0, 255, 204, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #00ffcc;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        h1 {
+            color: #00ffcc;
+            margin: 10px 0 30px 0;
+            font-size: 24px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 20px;
+        }
+        li {
+            margin: 10px 0;
+            color: #fff;
+            transition: color 0.3s;
+        }
+        li:hover {
+            color: #00ffcc;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- নতুন ছবির লিঙ্ক -->
+        <img src="https://raw.githubusercontent.com/shakib0122222/mybloglove0/02ab8ef5603fe47919935d58d14cbb9b2dce7ad4/IMG_20250929_132903.png" alt="প্রোফাইল ছবি" class="profile-img">
+        <h1>SHAKIB HOSSAIN</h1>
+        <ul>
+            <li>মোবাইল: 01742921012</li>
+            <li>ইমেইল: skshakib4356@gmail.com</li>
+            <li>ফেসবুক: <a href="https://www.facebook.com/ShakibOfficial120" target="_blank">@ShakibOfficial120</a></li>
+            <li>ইউটিউব: <a href="https://youtube.com/@shakibexplainer?si=-LfbvUX--e7ZKwSa" target="_blank">@shakibexplainer</a></li>
+            <li>টেলিগ্রাম: @H4X0R_0</li>
+            <li>ঠিকানা: Gafargaon, Mymensingh</li>
+            <li>রক্তের গ্রুপ: O+</li>
+        </ul>
+        <div class="footer">Developed by SAKIB HOSSAIN</div>
+    </div>
+</body>
+</html>
